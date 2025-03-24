@@ -206,6 +206,30 @@ main {
   cursor: not-allowed;
 }
 
+.undo-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.undo-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background-color: #3498db;
+  transition: width 0.1s linear;
+  display: none;
+}
+
+#paracetamol .undo-progress {
+  background-color: #3498db;
+}
+
+#ibuprofen .undo-progress {
+  background-color: #e74c3c;
+}
+
 footer {
   text-align: center;
   margin-top: 40px;

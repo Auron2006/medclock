@@ -34,13 +34,79 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add event listeners
     medications[med].element.takeButton.addEventListener('click', () => takeMedication(med));
-    medications[med].element.undoButton.addEventListener('click', () => undoLastDose(med));
+    
+    // Setup long-press for undo button
+    setupLongPressUndo(med);
   }
   
   // Reset all button
   document.getElementById('resetAll').addEventListener('click', resetAll);
   
   // Load data from localStorage
+
+// Setup long-press for undo button
+function setupLongPressUndo(medType) {
+  const med = medications[medType];
+  const undoButton = med.element.undoButton;
+  const holdTime = 1500; // 1.5 seconds hold time
+  let timer;
+  let progress = 0;
+  let isHolding = false;
+  
+  // Create progress bar for undo button
+  const progressBar = document.createElement('div');
+  progressBar.className = 'undo-progress';
+  undoButton.appendChild(progressBar);
+  
+  undoButton.addEventListener('mousedown', startHold);
+  undoButton.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    startHold();
+  });
+  
+  undoButton.addEventListener('mouseup', cancelHold);
+  undoButton.addEventListener('mouseleave', cancelHold);
+  undoButton.addEventListener('touchend', cancelHold);
+  undoButton.addEventListener('touchcancel', cancelHold);
+  
+  function startHold() {
+    if (med.history.length === 0 || undoButton.disabled) return;
+    
+    isHolding = true;
+    progress = 0;
+    progressBar.style.width = '0%';
+    progressBar.style.display = 'block';
+    
+    // Update progress every 10ms
+    timer = setInterval(() => {
+      if (isHolding) {
+        progress += 10;
+        progressBar.style.width = `${(progress / holdTime) * 100}%`;
+        
+        if (progress >= holdTime) {
+          // Hold time reached, execute undo
+          clearInterval(timer);
+          undoLastDose(medType);
+          resetProgress();
+        }
+      }
+    }, 10);
+  }
+  
+  function cancelHold() {
+    isHolding = false;
+    clearInterval(timer);
+    resetProgress();
+  }
+  
+  function resetProgress() {
+    setTimeout(() => {
+      progressBar.style.width = '0%';
+      progressBar.style.display = 'none';
+    }, 200);
+  }
+}
+
   loadData();
   
   // Start update loop
