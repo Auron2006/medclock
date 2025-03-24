@@ -1,16 +1,89 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medication Tracker</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-  Hello world
+  <div class="container">
+    <header>
+      <h1>Medication Tracker</h1>
+      <button id="resetAll" class="reset-button">
+        <i class="fas fa-redo-alt"></i> Reset All
+      </button>
+    </header>
+
+    <main>
+      <div class="medication-card" id="paracetamol">
+        <h2>Paracetamol</h2>
+        <div class="dose-info">
+          <div class="last-taken">
+            <span>Last taken:</span>
+            <span id="paracetamol-last-taken">Never</span>
+          </div>
+          <div class="next-dose">
+            <span>Next dose:</span>
+            <span id="paracetamol-next-dose">Available now</span>
+          </div>
+        </div>
+
+        <div class="daily-limit">
+          <div class="limit-text">
+            <span id="paracetamol-amount">0mg</span> / <span>4000mg</span>
+          </div>
+          <div class="progress-container">
+            <div id="paracetamol-progress" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="paracetamol-take" class="take-button">Took 500mg Paracetamol</button>
+          <button id="paracetamol-undo" class="undo-button" disabled>
+            <i class="fas fa-undo"></i> Undo Last Dose
+          </button>
+        </div>
+      </div>
+
+      <div class="medication-card" id="ibuprofen">
+        <h2>Ibuprofen</h2>
+        <div class="dose-info">
+          <div class="last-taken">
+            <span>Last taken:</span>
+            <span id="ibuprofen-last-taken">Never</span>
+          </div>
+          <div class="next-dose">
+            <span>Next dose:</span>
+            <span id="ibuprofen-next-dose">Available now</span>
+          </div>
+        </div>
+
+        <div class="daily-limit">
+          <div class="limit-text">
+            <span id="ibuprofen-amount">0mg</span> / <span>2400mg</span>
+          </div>
+          <div class="progress-container">
+            <div id="ibuprofen-progress" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="ibuprofen-take" class="take-button">Took 400mg Ibuprofen</button>
+          <button id="ibuprofen-undo" class="undo-button" disabled>
+            <i class="fas fa-undo"></i> Undo Last Dose
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>All medication data is stored locally in your browser.</p>
+    </footer>
+  </div>
   <script src="script.js"></script>
 </body>
-
 </html>

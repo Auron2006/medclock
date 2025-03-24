@@ -1,4 +1,224 @@
-html {
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.reset-button {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.reset-button:hover {
+  background-color: #e2e6ea;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.medication-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.medication-card:hover {
+  transform: translateY(-5px);
+}
+
+.medication-card h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+#paracetamol h2 {
+  color: #3498db;
+}
+
+#ibuprofen h2 {
+  color: #e74c3c;
+}
+
+.dose-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.last-taken, .next-dose {
+  display: flex;
+  flex-direction: column;
+}
+
+.last-taken span:first-child, 
+.next-dose span:first-child {
+  font-weight: 500;
+  color: #7f8c8d;
+  margin-bottom: 5px;
+}
+
+.last-taken span:last-child, 
+.next-dose span:last-child {
+  font-weight: 600;
+}
+
+.daily-limit {
+  margin-bottom: 20px;
+}
+
+.limit-text {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.progress-container {
+  height: 15px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
   height: 100%;
-  width: 100%;
+  width: 0;
+  background-color: #2ecc71;
+  transition: width 0.3s ease;
+}
+
+.warning {
+  background-color: #f39c12;
+}
+
+.danger {
+  background-color: #e74c3c;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.take-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+#paracetamol .take-button {
+  background-color: #3498db;
+}
+
+#paracetamol .take-button:hover {
+  background-color: #2980b9;
+}
+
+#ibuprofen .take-button {
+  background-color: #e74c3c;
+}
+
+#ibuprofen .take-button:hover {
+  background-color: #c0392b;
+}
+
+.take-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.undo-button {
+  background-color: transparent;
+  color: #7f8c8d;
+  border: 1px solid #ecf0f1;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.undo-button:hover:not(:disabled) {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+.undo-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #95a5a6;
+  font-size: 0.9rem;
+}
+
+.red-text {
+  color: #e74c3c;
+}
+
+.green-text {
+  color: #2ecc71;
+}
+
+.yellow-text {
+  color: #f39c12;
 }
