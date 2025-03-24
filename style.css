@@ -50,7 +50,7 @@ h1 {
 main {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
@@ -63,19 +63,20 @@ main {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 15px;
   transition: transform 0.2s;
+  font-size: 0.95rem;
 }
 
 .medication-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 .medication-card h2 {
   color: #2c3e50;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-  padding-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  padding-bottom: 8px;
   border-bottom: 1px solid #f1f1f1;
 }
 
@@ -90,8 +91,8 @@ main {
 .dose-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
 }
 
 .last-taken, .next-dose {
@@ -112,7 +113,7 @@ main {
 }
 
 .daily-limit {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .limit-text {
@@ -148,18 +149,19 @@ main {
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .take-button {
   background-color: #3498db;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 10px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.2s;
+  font-size: 0.95rem;
 }
 
 #paracetamol .take-button {
