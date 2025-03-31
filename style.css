@@ -81,11 +81,11 @@ main {
 }
 
 #paracetamol h2 {
-  color: #3498db;
+  color: #9370DB; /* Light purple */
 }
 
 #ibuprofen h2 {
-  color: #e74c3c;
+  color: #98FB98; /* Mint green */
 }
 
 .dose-info {
@@ -165,19 +165,19 @@ main {
 }
 
 #paracetamol .take-button {
-  background-color: #3498db;
+  background-color: #9370DB; /* Light purple */
 }
 
 #paracetamol .take-button:hover {
-  background-color: #2980b9;
+  background-color: #8A5BD8; /* Slightly darker purple */
 }
 
 #ibuprofen .take-button {
-  background-color: #e74c3c;
+  background-color: #98FB98; /* Mint green */
 }
 
 #ibuprofen .take-button:hover {
-  background-color: #c0392b;
+  background-color: #7CCD7C; /* Slightly darker mint green */
 }
 
 .take-button:disabled {
@@ -223,11 +223,11 @@ main {
 }
 
 #paracetamol .undo-progress {
-  background-color: #3498db;
+  background-color: #9370DB; /* Light purple */
 }
 
 #ibuprofen .undo-progress {
-  background-color: #e74c3c;
+  background-color: #98FB98; /* Mint green */
 }
 
 footer {
